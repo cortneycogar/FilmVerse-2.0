@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+tor<!DOCTYPE html>
 <html>
   <head>
-    <title>Election Data: <%=item.name%></title>
+    <title>Director Information: <%=item.name%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Election Data</h1></a>
+    <a href="/"><h1>Director Information</h1></a>
     <dl>
-      <dt>Party name</dt>
+      <dt>Director name</dt>
       <dd><%=item.name%></dd>
       <% if (item.description) { %>
       <dt>Description</dt>
       <dd><%=item.description%></dd>
       <% } %>
-      <dt>Candidates</dt>
+      <dt>Films</dt>
       
       <dd>
         <% if (related_items.length > 0) { %>
