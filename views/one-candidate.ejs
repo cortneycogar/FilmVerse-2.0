@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Election Data: <%=item.name%></title>
+    <title>Film Data: <%=item.name%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Election Data</h1></a>
+    <a href="/"><h1>Film Data</h1></a>
     <dl>
-      <dt>Name</dt>
+      <dt>Title</dt>
       <dd><%=item.name%></dd>
-      <dt>Party</dt>
-      <dd><a href="/parties/<%=item.party%>"><%=item.party%></a></dd>
+      <dt>Director</dt>
+      <dd><a href="/directors/<%=item.director%>"><%=item.director%></a></dd>
       <% if (item.image) { %>
       <dt>Image URL</dt>
       <dd><img src="<%=item.image%>" alt="<%=item.name%>"></dd>
       <% } %>
     </dl>
     <div class="control">
-      <h2>Update candidate</h2>
-      <form method="post" action="/candidates/<%=item._id%>">
+      <h2>Update film</h2>
+      <form method="post" action="/films/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
         <label>Name: 
           <input name="item[name]" value="<%=item.name%>" type="text" required>
         </label>
-        <label>Party: 
-          <select name="item[party]" required>
+        <label>Director: 
+          <select name="item[director]" required>
             <% related_items.forEach(function(related_item) { %>
             <option value="<%=related_item._id%>"
               <% if (related_item._id === item.party) { %>selected<% } %>>
