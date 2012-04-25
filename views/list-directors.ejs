@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Film Data: Directors</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <a href="/"><h1>List of Films</h1></a>
+    <% if (items.length > 0) { %>
+    <ul>
+      <% items.forEach(function(item) { %>
+      <li><a href="/directors/<%=item._id%>"><%=item.name%></a></li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <div>No directors have been added.</div>
+    <% } %>
+    <div class="control">
+      <h2>Add or update a new director</h2>
+      <script>
+      function onFormSubmit(form) {
+        form.action = form.action + form.elements['item[id]'].value;
+        console.log(form.action);
+        return true;
+      } 
+      </script>
+      <form method="post" action="/directors/"
+            onsubmit="return onFormSubmit(this);">
+        <!-- The line above dynamically sets the PUT destination when the -->
+        <!-- form is submitted. -------------------------------------------->
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+        <label>Director ID<br>
+          (lowercase letters only, no spaces):
+          <input name="item[id]" type="text" pattern="[a-z]+" required
+                 placeholder="Director Name">
+        </label>
+        <label>Director name: 
+          <input name="item[name]" type="text" required
+                 placeholder="Director">
+        </label>
+        <label>Director description:
+          <textarea name="item[description]" cols="80" rows="10" 
+                    placeholder="Include information regarding a director's most successful films and other accomplishments, as well as anything interesting about his or her personal life."
+          ></textarea>
+        </label>
+        <button>Add or update</button>
+      </form>
+    </div>
+  </body>
+</html>
