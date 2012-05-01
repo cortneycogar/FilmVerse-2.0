@@ -32,6 +32,8 @@ var db = utils.connectToDatabase(USER_OR_GROUP_NAME);
 ////////////////////////////////////////////////////////////////////////////////
 app.put('/films/{film-name_year}',      // TODO: change to suit your URI design.
   function(req, res) {
+      
+      
   
     // Get the item ID from the URI.
     var item_id = req.params.id;
@@ -54,7 +56,7 @@ app.put('/films/{film-name_year}',      // TODO: change to suit your URI design.
   }
 );
 // to add fims
-app.get('/add-film/',      // TODO: change to suit your URI design.
+app.get('/add-stuff/',      // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item ID from the URI.
@@ -62,8 +64,17 @@ app.get('/add-film/',      // TODO: change to suit your URI design.
 
     var item = req.query['item'];
     
-    res.write(item_id+' '+item);
-    res.end();
+    var films = [
+        ['panslabyrinth','2008'],
+        ['super 8','2011'],
+        ];
+        
+    for(var i=0;i<films.length;i++)
+    {
+        var itm = films[i];
+    res.send((i+1)+' '+itm[0]+' '+itm[1]+'\n');
+    }
+   // res.end();
     
     return;
     
@@ -194,6 +205,8 @@ app.get('/films/?rating={R}/',          // TODO: change to suit your URI design.
 ////////////////////////////////////////////////////////////////////////////////
 app.get('/films/{film-name_year}',      // TODO: change to suit your URI design.
   function(req, res) {
+     return res.send(req.params);
+      
 
     var item_type = 'film'; // TODO: change to the type of item you want.
 
