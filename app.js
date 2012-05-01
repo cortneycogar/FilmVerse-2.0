@@ -58,11 +58,9 @@ app.get('/add-film/',      // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item ID from the URI.
-    var item_id = req.params.id;
+    var item_id = req.query['id'];
 
-    // Get the item info that was PUT from the input form.
-    // See the form in `views/list-parties.ejs`.
-    var item = req.params.item;
+    var item = req.query['item'];
     
     res.write(item_id+' '+item);
     res.end();
