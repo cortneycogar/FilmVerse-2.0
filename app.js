@@ -68,14 +68,14 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
         ['panslabyrinth','2008'],
         ['super 8','2011'],
         ];
-        res.send(films.length);
+   res.write(''+films.length);
     for(var i=0;i<films.length;i++)
     {
         var itm = films[i];
         item_id = 1 +i;
-    res.send((item_id)+' '+itm[0]+' '+itm[1]+'\n');
+    res.write((item_id)+' '+itm[0]+' '+itm[1]+'\n');
     }
-   // res.end();
+    res.end();
     
     return;
     
@@ -204,7 +204,7 @@ app.get('/films/?rating={R}/',          // TODO: change to suit your URI design.
 // This handler is more complicated, because we want to show not only the //////
 // item requested, but also links to a set of related items. ///////////////////
 ////////////////////////////////////////////////////////////////////////////////
-app.get('/films/([a-z\-]+_(\d+))',      // TODO: change to suit your URI design.
+app.get(/^\/films\/([a-z\-]+_(\d+))\/?$/,      // TODO: change to suit your URI design.
   function(req, res) {
      return res.send(req.params);
       
