@@ -30,17 +30,20 @@ var db = utils.connectToDatabase(USER_OR_GROUP_NAME);
 // Example of handling PUT to create or update a resource. /////////////////////
 // Here we create or update an item using the ID specified in the URI. /////////
 ////////////////////////////////////////////////////////////////////////////////
-app.put('/films/{film-name_year}',      // TODO: change to suit your URI design.
+app.post('/add-film/}',      // TODO: change to suit your URI design.
   function(req, res) {
       
-      
-  
-    // Get the item ID from the URI.
-    var item_id = req.params.id;
+
 
     // Get the item info that was PUT from the input form.
     // See the form in `views/list-parties.ejs`.
-    var item = req.body.item;
+    var item = req.body.film;
+    
+          
+  
+    // Generate the id
+    var item_id = (item.name).replace(/[^a-z0-9]+/i,'-');
+    
     
     item.type = 'film'; // TODO: change to the type of item you want
 
@@ -75,7 +78,7 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
         var item_id = itm[0];
         var item = {
             
-            "label":itm[1],
+            "name":itm[1],
             "type":'film',
             "year":itm[2],
             "director":itm[3],
