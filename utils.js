@@ -225,4 +225,6 @@ function authRequired(res,realm) {
     { 'WWW-Authenticate': 'Basic realm="' + realm + '"' }, 401);
 }
 
+function sanitizeForUrl(str)
+{return (str).toString().toLowerCase().replace(/[^a-z0-9]+/ig,'-');}
 
