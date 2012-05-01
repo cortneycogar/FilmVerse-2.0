@@ -22,6 +22,9 @@ var app = utils.initializeWebApp();
 // Connect to your database.
 var db = utils.connectToDatabase(USER_OR_GROUP_NAME);
 
+function sanitizeForUrl(str)
+{return (str).toString().toLowerCase().replace(/[^a-z0-9]+/ig,'-');}
+
 // TODO: Start defining your resource handlers. You may just need to modify the
 // examples below, or you may need to add additional handlers by copying,
 // pasting, and modifying these examples.
