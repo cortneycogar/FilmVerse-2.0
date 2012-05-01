@@ -72,9 +72,9 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
     for(var i=0;i<films.length;i++)
     {
         var itm = films[i];
-        var item_id = 1 +i;
+        var item_id = itm[0];
         var item = {
-            "tag":itm[0],
+            
             "label":itm[1],
             "type":'film',
             "year":itm[2],
@@ -93,7 +93,7 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
     });
     
     }
-    res.end();
+    //res.end();
     
     return;
     
