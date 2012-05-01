@@ -42,7 +42,7 @@ app.post('/add-film/',      // TODO: change to suit your URI design.
           
   
     // Generate the id
-    var item_id = utils.sanitizeForUrl(item.title);
+    var item_id = sanitizeForUrl(item.title);
     
     
     item.type = 'film'; // TODO: change to the type of item you want
