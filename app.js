@@ -53,6 +53,36 @@ app.put('/films/{film-name_year}',      // TODO: change to suit your URI design.
     });
   }
 );
+// to add fims
+app.get('/add-film/}',      // TODO: change to suit your URI design.
+  function(req, res) {
+  
+    // Get the item ID from the URI.
+    var item_id = req.params.id;
+
+    // Get the item info that was PUT from the input form.
+    // See the form in `views/list-parties.ejs`.
+    var item = req.params.item;
+    
+    res.write(item_id+' '+item);
+    res.end();
+    
+    return;
+    
+    item.type = 'film'; // TODO: change to the type of item you want
+
+    // Save the new item to the database, specifying the ID.
+    db.save(item_id, item, function(err) {
+
+      // If there was a database error, return an error status.
+      if (err) { res.send(err, 500); } 
+      
+      // Otherwise, redirect back to the URI from which the form was submitted.
+      else { res.write() }
+    });
+  }
+);
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Example of handling GET of a "collection" resource. /////////////////////////
