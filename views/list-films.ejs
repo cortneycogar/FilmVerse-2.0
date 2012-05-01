@@ -25,17 +25,24 @@
 
 <div id="new-film">
     <form method="post" action="/add-film/">
-	<label> Title </label><input type="text" name="film[title]" value="" /><br />
-	<label> Year </label><input type="text" name="film[year]" value="" /><br />
-	<label> Director </label><input type="text" name="film[director]" value="" /><br />
-	<label> Producer </label><input type="text" name="film[producer]" value="" /><br />
-	<label> Writer </label><input type="text" name="film[writer]" value="" /><br />
-	<label> Distributor </label><input type="text" name="film[distributor]" value="" /><br />
-	<label> Rating </label><input type="text" name="film[rating]" value="" /><br />
-	<label> Genre </label><input type="text" name="film[genre]" value="" /><br />
-	<label> Language </label><input type="text" name="film[language]" value="" /><br />
-	<label> Actor </label><input type="text" name="film[actor]" value="" /><br />
-	<input type="submit" /><br />
+    <label> Title <input type="text" name="film[title]" required value="" /></label>
+	<label> Year <input type="text" name="film[year]" required value="" /></label>
+	<label> Director <select type="text" name="film[director]">
+            <% directors.forEach(function(director) { %>
+            <option value="<%=related_item._id%>">
+              <%=related_item.name%>
+            </option>
+            <% }); %>
+    </select></label>
+	<label> Producer <input type="text" name="film[producer]" value="" /></label>
+	<label> Writer <input type="text" name="film[writer]" value="" /></label>
+	<label> Distributor <input type="text" name="film[distributor]" value="" /></label>
+	<label> Rating <input type="text" name="film[rating]" value="" /></label>
+	<label> Genre <input type="text" name="film[genre]" value="" /></label>
+	<label> Language <input type="text" name="film[language]" value="" /></label>
+	<label> Actor <textarea name="film[actor]"></textarea></label>
+<label> Description <textarea name="film[description]"></textarea></label>
+	<input type="submit" /></label>
 	</form>
 </div>
   </body>

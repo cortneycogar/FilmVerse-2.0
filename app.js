@@ -135,10 +135,20 @@ app.get('/films/',         // TODO: change to suit your URI design.
 
       // Otherwise, use the returned data to render an HTML page.
       else {
-        res.render(
-          'list-films',   // TODO: change to the name of your HTML template.
-          { items: items }
-        );
+          db.getAll('directors',function(err2,directors){
+              if(err2){ res.send(err, 500); } 
+                else
+                  {
+               res.render(
+                  'list-films',   // TODO: change to the name of your HTML template.
+                  { "items": items,
+                  "directors":directors}
+                );
+                }
+              
+              
+              });
+ 
       }
     });
   }
@@ -154,11 +164,12 @@ app.post('/directors/', // TODO: change to suit your URI design.
     // Get the item info that was POSTed from the input form.
     // See the form in `views/one-party.ejs`.
     var item = req.body.item;
+    var item_id= sanitizeForUrl(item.name);
 
     item.type = 'director'; // TODO: change to the type of item you want
 
     // Save the new item to the database. (No ID specified, it will be created.)
-    db.save(item, function(err) {
+    db.save(item_id,item, function(err) {
 
       // If there was a database error, return an error status.
       if (err) { res.send(err, 500); } 

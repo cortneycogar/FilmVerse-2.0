@@ -1,50 +1,43 @@
-tor<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Director Information: <%=item.name%></title>
+    <title>Film Data: <%=item.name%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Director Information</h1></a>
+    <a href="/"><h1>Film Data</h1></a>
     <dl>
-      <dt>Director name</dt>
+      <dt>Title</dt>
       <dd><%=item.name%></dd>
-      <% if (item.description) { %>
-      <dt>Description</dt>
-      <dd><%=item.description%></dd>
+      <dt>Director</dt>
+      <dd><a href="/directors/<%=item.director%>"><%=item.director%></a></dd>
+      <% if (item.image) { %>
+      <dt>Image URL</dt>
+      <dd><img src="<%=item.image%>" alt="<%=item.name%>"></dd>
       <% } %>
-      <dt>Films</dt>
-      
-      <dd>
-        <% if (related_items.length > 0) { %>
-        <ul>
-          <% related_items.forEach(function(related_item) { %>
-          <li>
-            <a href="/films/<%=related_item._id%>">
-              <%=related_item.name%>
-            </a>
-          </li>
-          <% }); %>
-        </ul>
-        <% } else { %>
-        No films have been added to this director.
-        <% } %>
-      </dd>
     </dl>
     <div class="control">
-      <h2>Add a new film</h2>
-      <form id="create-film" method="post" action="/films/">
-        <input type="hidden" name="item[director]" value="<%=item._id%>">
-        <!-- The line above links the candidate to be created to this party. -->
-        <label>Film title: 
-          <input name="item[name]" type="text" required
-                   placeholder="Title">
+      <h2>Update film</h2>
+      <form method="post" action="/films/<%=item._id%>">
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+        <label>Name: 
+          <input name="item[name]" value="<%=item.name%>" type="text" required>
         </label>
-        <label>Film image URL:
-          <input name="item[image]" type="url" size="80"
-                   placeholder="">
+        <label>Director: 
+          <select name="item[director]" required>
+            <% related_items.forEach(function(related_item) { %>
+            <option value="<%=related_item._id%>"
+              <% if (related_item._id === item.party) { %>selected<% } %>>
+              <%=related_item.name%>
+            </option>
+            <% }); %>
+          </select>
         </label>
-        <button>Add</button>
+        <label>Image URL:
+          <input name="item[image]" value="<%=item.image%>" type="url" size="80"> 
+        </label>
+        <button>Update</button>
       </form>
     </div>
   </body>
