@@ -60,9 +60,9 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item ID from the URI.
-    var item_id = req.query['id'];
+   // var item_id = req.query['id'];
 
-    var item = req.query['item'];
+    //var item = req.query['item'];
     
     var films = [
         ['panslabyrinth',"Pan's Labyrinth",'2008','director','M'],
@@ -72,7 +72,7 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
     for(var i=0;i<films.length;i++)
     {
         var itm = films[i];
-        item_id = 1 +i;
+        var item_id = 1 +i;
         var item = {
             "tag":itm[0],
             "label":itm[1],
