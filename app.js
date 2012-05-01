@@ -65,15 +65,33 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
     var item = req.query['item'];
     
     var films = [
-        ['panslabyrinth','2008'],
-        ['super 8','2011'],
+        ['panslabyrinth',"Pan's Labyrinth",'2008','director','M'],
+        ['super-8',"Super 8",'2011','director2','PG-13'],
         ];
-   res.write(''+films.length);
+  // res.write(''+films.length);
     for(var i=0;i<films.length;i++)
     {
         var itm = films[i];
         item_id = 1 +i;
-    res.write((item_id)+' '+itm[0]+' '+itm[1]+'\n');
+        var item = {
+            "tag":itm[0],
+            "label":itm[1],
+            "type":'film',
+            "year":itm[2],
+            "director":itm[3],
+            "rating":itm[4]
+        };
+        res.write((item_id)+' '+itm[0]+' '+itm[1]);
+        
+        db.save(item_id, item, function(err) {
+
+      // If there was a database error, return an error status.
+      if (err) { res.write('failure\n'); } 
+      
+      // Otherwise, redirect back to the URI from which the form was submitted.
+      else { res.write('success\n') }
+    });
+    
     }
     res.end();
     
