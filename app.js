@@ -222,7 +222,7 @@ app.get('/films/?rating={R}/',          // TODO: change to suit your URI design.
 // This handler is more complicated, because we want to show not only the //////
 // item requested, but also links to a set of related items. ///////////////////
 ////////////////////////////////////////////////////////////////////////////////
-app.get(/^\/films\/([a-z\-]+_(\d+))\/?$/,      // TODO: change to suit your URI design.
+app.get(/^\/films\/([a-z\-]+)_(\d+)\/?$/,      // TODO: change to suit your URI design.
   function(req, res) {
      return res.send(req.params);
       
