@@ -135,7 +135,7 @@ app.get('/films/',         // TODO: change to suit your URI design.
 
       // Otherwise, use the returned data to render an HTML page.
       else {
-          db.getAll('directors',function(err2,directors){
+          db.getAll('director',function(err2,directors){
               if(err2){ res.send(err, 500); } 
                 else
                   {
