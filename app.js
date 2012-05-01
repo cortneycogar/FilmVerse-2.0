@@ -135,7 +135,30 @@ app.get('/films/',         // TODO: change to suit your URI design.
 
       // Otherwise, use the returned data to render an HTML page.
       else {
-          db.getAll('directors',function(err2,directors){
+
+               res.render(
+                  'list-directors',   // TODO: change to the name of your HTML template.
+                  { "items": items}
+                );
+
+      }
+    });
+  });
+
+app.get('/directors/',         // TODO: change to suit your URI design. 
+  function(req, res) {
+
+    var item_type = 'director'; // TODO: change to the type of item you want.
+
+    // Get all items of the specified type from the database.
+    db.getAll(item_type, function(err, items) {
+
+      // If there was a database error, return an error status.
+      if (err) { res.send(err, 500); } 
+
+      // Otherwise, use the returned data to render an HTML page.
+      else {
+          db.getAll('director',function(err2,directors){
               if(err2){ res.send(err, 500); } 
                 else
                   {
