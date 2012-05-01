@@ -135,15 +135,24 @@ app.get('/films/',         // TODO: change to suit your URI design.
 
       // Otherwise, use the returned data to render an HTML page.
       else {
-
+          db.getAll('directors',function(err2,directors){
+              if(err2){ res.send(err, 500); } 
+                else
+                  {
                res.render(
-                  'list-directors',   // TODO: change to the name of your HTML template.
-                  { "items": items}
+                  'list-films',   // TODO: change to the name of your HTML template.
+                  { "items": items,
+                  "directors":directors}
                 );
-
+                }
+              
+              
+              });
+ 
       }
     });
-  });
+  }
+);
 
 app.get('/directors/',         // TODO: change to suit your URI design. 
   function(req, res) {
@@ -158,20 +167,12 @@ app.get('/directors/',         // TODO: change to suit your URI design.
 
       // Otherwise, use the returned data to render an HTML page.
       else {
-          db.getAll('director',function(err2,directors){
-              if(err2){ res.send(err, 500); } 
-                else
-                  {
+
                res.render(
                   'list-films',   // TODO: change to the name of your HTML template.
-                  { "items": items,
-                  "directors":directors}
+                  { "items": items}
                 );
-                }
-              
-              
-              });
- 
+
       }
     });
   }
