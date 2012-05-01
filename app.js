@@ -68,11 +68,11 @@ app.get('/add-stuff/',      // TODO: change to suit your URI design.
         ['panslabyrinth','2008'],
         ['super 8','2011'],
         ];
-        
+        res.send(films.length);
     for(var i=0;i<films.length;i++)
     {
         var itm = films[i];
-    res.send((i+1)+' '+itm[0]+' '+itm[1]+'\n');
+    res.send((i)+' '+itm[0]+' '+itm[1]+'\n');
     }
    // res.end();
     
