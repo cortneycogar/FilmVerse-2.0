@@ -42,7 +42,7 @@ app.post('/add-film/}',      // TODO: change to suit your URI design.
           
   
     // Generate the id
-    var item_id = (item.name).replace(/[^a-z0-9]+/i,'-');
+    var item_id = (item.name).toLowerCase().replace(/[^a-z0-9]+/i,'-');
     
     
     item.type = 'film'; // TODO: change to the type of item you want
