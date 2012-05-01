@@ -317,7 +317,7 @@ app.get(/^\/films\/([a-z\-]+)_(\d+)\/?$/,      // TODO: change to suit your URI 
 // item requested, but also a list of potential related items, so that users ///
 // can select from a list when updating the item. //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-app.get('/directors/{director-id}/',       // TODO: change to suit your URI design.
+app.get('/directors/:id',       // TODO: change to suit your URI design.
   function(req, res) {
 
     var item_type = 'director'; // TODO: change to the type of item you want.
@@ -340,7 +340,7 @@ app.get('/directors/{director-id}/',       // TODO: change to suit your URI desi
         var related_type = 'film'; // TODO: change to type of related item.
 
         // Get all items of the specified related type.
-        db.getAll(related_type, function(err, items) {
+        db.getSome(related_type,{'director':item_id}, function(err, items) {
 
           // If there was a database error, return an error status.
           if (err) { res.send(err, 500); } 
