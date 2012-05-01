@@ -29,8 +29,8 @@
 	<label> Year <input type="text" name="film[year]" required value="" /></label>
 	<label> Director <select type="text" name="film[director]">
             <% directors.forEach(function(director) { %>
-            <option value="<%=related_item._id%>">
-              <%=related_item.name%>
+            <option value="<%=director._id%>">
+              <%=director.name%>
             </option>
             <% }); %>
     </select></label>
