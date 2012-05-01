@@ -54,7 +54,7 @@ app.put('/films/{film-name_year}',      // TODO: change to suit your URI design.
   }
 );
 // to add fims
-app.get('/add-film/}',      // TODO: change to suit your URI design.
+app.get('/add-film/',      // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item ID from the URI.
