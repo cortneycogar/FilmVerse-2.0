@@ -169,7 +169,7 @@ app.get('/directors/',         // TODO: change to suit your URI design.
       else {
 
                res.render(
-                  'list-films',   // TODO: change to the name of your HTML template.
+                  'list-directors',   // TODO: change to the name of your HTML template.
                   { "items": items}
                 );
 
