@@ -23,8 +23,14 @@
 * title
 	* Applied to a dt tag. Consists of a film's title.
 
+* actor
+	* Applied to a dt tag. Consists of a film's actor(s).
+
 * description
 	* Applied to a dt tag. Consists of text description of a film or director.
+
+* website
+	* Applied to a dt tag. Consists of a link to the film's website, if applicable.
 
 * genre
 	* Applied to a dt tag. Consists of a film's associated genre.
@@ -38,8 +44,6 @@
 * image
 	* Applied to a dt tag. Consists of an image of the film's poster.
 
-* found
-	* Applied to a UL tag. This is a list of the films retrieved that match a user's query.
 
 # Rel attribute values
 
@@ -60,6 +64,9 @@
 * year
 	* Applied to an INPUT[text] element. The year of an individual film.
 
+* website
+	* Applied to an INPUT[text] element. The website for an individual film.
+
 * director
 	* Applied to an INPUT[text] element. The director of an individual film.
 
@@ -74,6 +81,9 @@
 
 * language
 	* Applied to an INPUT[text] element. The language of an individual film.
+
+* actor
+	* Applied to an INPUT[text] element. The actor(s) for an individual film.
 
 * description
 	* Applied to an INPUT[text] element. The description for an individual film.
