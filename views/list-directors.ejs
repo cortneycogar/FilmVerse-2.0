@@ -9,7 +9,7 @@
     <% if (items.length > 0) { %>
     <ul>
       <% items.forEach(function(item) { %>
-      <li itemscope itemtype="http://schema.org/Person"><a href="/directors/<%=item._id%>/">
+      <li itemscope itemtype="http://schema.org/Person"><a href="/directors/<%=item._id%>/" rel="director">
       <span itemprop="name"><%=item.name%></span></a></li>
       <% }); %>
     </ul>

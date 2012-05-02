@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    
+<div id="films">    
     <a href="/"><h1>List of Films</h1></a>
 
     <% if (items.length > 0) { %>
-    <ul>
+    <ul class="all">
       <% items.forEach(function(item) { %>
-        <li itemscope itemtype="http://schema.org/Movie"><a href="/films/<%=item._id%>/">
+        <li itemscope itemtype="http://schema.org/Movie"><a href="/films/<%=item._id%>/" rel="film">
             <span itemprop="name"><%=item.title%> (<%=item.year%>)</span>
         </a></li>
       <% }); %>
@@ -19,7 +19,8 @@
     <% } else { %>
     <div>No films found.</div>
     <% } %>
-    <div class="control">
+</div>
+    <div id="search" class="control">
       <h2>Search for films by name</h2>
       <form method="get" action="/films/search/">
         <label>Film name: <input name="title"></label>

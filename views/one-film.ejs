@@ -8,30 +8,30 @@
     <a href="/"><h1>Film Info</h1></a>
     <dl itemscope itemtype="http://schema.org/Movie">
 
-      <dt>Title</dt>
+      <dt class="title">Title</dt>
       <dd itemprop="name">
       <%=item.title%></dd>
-      <dt>Year</dt>
+      <dt class="year">Year</dt>
       <dd itemprop="datePublished" itemscope itemtype="http://schema.org/Date">
       <span itemprop="year"><%=item.year%></span></dd>
-      <dt>Director</dt>
+      <dt class="director">Director</dt>
       <dd itemprop="director" itemscope itemtype="http://schema.org/Person">
       <a href="/directors/<%=item.director%>"><span itemprop="name"><%=item.director%></span></a></dd>
       <% if (item.image) { %>
-      <dt>Film poster</dt>
+      <dt class="image">Film poster</dt>
       <dd itemprop="image">
       <img src="<%=item.image%>" alt="<%=item.name%>"></dd>
       <% } %>
-      <dt>Rating</dt>
+      <dt class="rating">Rating</dt>
       <dd itemprop="contentRating" itemscope itemtype="http://schema.org/Text">
       <span itemprop="ratingValue"><%=item.rating%></span></dd>
-      <dt>Genre</dt>
+      <dt class="genre">Genre</dt>
       <dd itemprop="genre" itemscope itemtype="http://schema.org/Text">
       <span itemprop="genreValue"><%=item.genre%></span></dd>
-      <dt>Language</dt>
+      <dt class="language">Language</dt>
       <dd itemprop="inLanguage" itemscope itemtype="http://schema.org/Text">
       <span itemprop="languageValue"><%=item.language%></span></dd>
-      <dt>Description</dt>
+      <dt class="description">Description</dt>
       <dd itemprop="description"><%=item.description%></dd>
     </dl>
     <div class="control">

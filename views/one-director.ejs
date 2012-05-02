@@ -7,11 +7,11 @@
   <body>
     <a href="/"><h1>Director Information</h1></a>
     <dl itemscope itemtype="http://schema.org/Person">
-      <dt>Director name</dt>
+      <dt class="director">Director name</dt>
       <dd itemprop="name">
       <%=item.name%></dd>
       <% if (item.description) { %>
-      <dt>Description</dt>
+      <dt class="description">Description</dt>
       <dd itemprop="description">
       <%=item.description%></dd>
       <% } %>
@@ -22,7 +22,7 @@
         <ul>
           <% related_items.forEach(function(related_item) { %>
           <li itemscope itemtype="http://schema.org/Movie">
-            <a href="/films/<%=related_item._id%>">
+            <a href="/films/<%=related_item._id%>" rel="film">
             <span itemprop="name"><%=related_item.title%> (<%=related_item.year%>)</span>
             </a>
           </li>
@@ -33,9 +33,9 @@
         <% } %>
       </dd>
     </dl>
-    <div class="control">
+    <div id="new-film" class="control">
       <h2>Add a new film</h2>
-      <form id="create-film" method="post" action="/films/">
+      <form method="post" action="/films/">
         <input type="hidden" name="item[director]" value="<%=item._id%>">
         <!-- The line above links the candidate to be created to this party. -->
         <label>Film title: 
