@@ -47,10 +47,12 @@
         <label>Name: 
           <input name="item[title]" value="<%=item.title%>" type="text" required>
         </label>
-     <input name="item[year]" value="<%=item.year%>" type="text" required>
+        <label>Year: 
+          <input name="item[year]" value="<%=item.year%>" type="text" required>
         </label>
         <label>Website:
            <input name="item[url]" value="<%=item.url%>" type="url" required>
+        </label>
         <label>Director: 
           <select name="item[director]" required>
             <% related_items.forEach(function(related_item) { %>
