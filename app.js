@@ -266,10 +266,10 @@ app.put('/directors/{director-id}', // TODO: change to suit your URI design.
 // Another example of handling GET of a "collection" resource. /////////////////
 // This time we support filtering the list by some criteria (i.e. searching). //
 ////////////////////////////////////////////////////////////////////////////////
-app.get('/films/?rating={R}/',          // TODO: change to suit your URI design. 
+app.get(/^\/films\/\?title=.+$/,          // TODO: change to suit your URI design. 
   function(req, res) {
 
-    var item_type = 'rating'; // TODO: change to the type of item you want.
+    var item_type = 'title'; // TODO: change to the type of item you want.
 
     // Get items of the specified type that match the query.
     db.getSome(item_type, req.query, function(err, items) {
@@ -280,8 +280,9 @@ app.get('/films/?rating={R}/',          // TODO: change to suit your URI design.
       // Otherwise, use the returned data to render an HTML page.
       else {
         res.render(
-          'list-films-by-rating', // TODO: change to the name of your HTML template.
-          { items: items }
+          'list-films-title', // TODO: change to the name of your HTML template.
+          { items: items,
+          query:req.query['title'] }
         );
       }
     });
