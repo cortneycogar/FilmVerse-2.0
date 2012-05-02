@@ -266,7 +266,7 @@ app.put('/directors/{director-id}', // TODO: change to suit your URI design.
 // Another example of handling GET of a "collection" resource. /////////////////
 // This time we support filtering the list by some criteria (i.e. searching). //
 ////////////////////////////////////////////////////////////////////////////////
-app.get(/^\/films\/\?title=.+$/,          // TODO: change to suit your URI design. 
+app.get('/film/search/',          // TODO: change to suit your URI design. 
   function(req, res) {
 
     var item_type = 'title'; // TODO: change to the type of item you want.
