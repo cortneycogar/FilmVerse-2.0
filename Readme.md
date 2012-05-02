@@ -1,41 +1,133 @@
-# An example web information service
+# ID attribute values
 
-This is an example application intended to be used as a starting point for the final project in [INLS 490-186 Web Information Organization](http://aeshin.org/teaching/inls-490-186/2012/sp/).
+* search
+	* Applied to a div tag. Contains a form for searching for films by name.
 
-## Forking this repository
+* films
+	* Applied to a ul tag. The list of films in the representation. May contain only one film.
 
-You will want to start by [forking](http://help.github.com/fork-a-repo/) this repository so you have your own copy to modify. If you decide to work in a group, I will put a copy of the code in your shared repository. (While it's possible to collaborate with your group by pushing and pulling commits across your two or three separate forks, doing so requires somewhat advanced knowledge of Git and thus isn't expected for this assignment.)
+* new-film
+	* Applied to a div tag. Contains a form for adding a new film.
 
-If you're working alone, please **rename your GitHub repository** to something more suitable for your service. You can do this by clicking on the ![admin](/sils-webinfo/election/raw/master/doc/img/admin.png) button from your repository's page on GitHub. A one-word, no-spaces name is best. (If you're working in a group the repository will be named after your group).
+# Class attribute values
 
-## Cloning your project in Cloud9
+* control
+	* Applied to a div tag. Applies box for form controls.
 
-*Coming soon*
+* all
+	* Applied to a UL tag. This is a list of all the films available.
 
-## Modifying the example code
+* year
+	* Applied to a dt tag. Consists of the year in which a film was released.
 
-There are only three places where the example service needs to be modified to implement your own service:
+* title
+	* Applied to a dt tag. Consists of a film's title.
 
-1. [`app.js`](https://github.com/sils-webinfo/election/blob/master/app.js) contains all the logic for handling HTTP requests. You may just need to modify the examples in this file, or you may need to add additional request handlers by copying, pasting, and modifying these examples. The only parts you should *need* to change are marked with with `TODO` comments. In particular, make sure you edit the value of the `USER_OR_GROUP_NAME` variable at the top of this file to match your GitHub user name (if you're working alone) or your group name:
+* actor
+	* Applied to a dt tag. Consists of a film's actor(s).
 
-    ```javascript
-    var USER_OR_GROUP_NAME = ''; // TODO: Insert GitHub username or group name.
-    ```
+* description
+	* Applied to a dt tag. Consists of text description of a film or director.
 
-1. The [`views`](https://github.com/sils-webinfo/election/tree/master/views) directory contains all the EJS ([Embedded JavaScript](http://embeddedjs.com/)) templates for the service. You will need to create new templates suitable for your application, using these examples as models. The templates should include the metadata describing your application flow and data.
+* website
+	* Applied to a dt tag. Consists of a link to the film's website, if applicable.
 
-1. Finally, you need to edit [`package.json`](https://github.com/sils-webinfo/election/blob/master/package.json) and change the value of the `name` property to whatever you named your project.
+* genre
+	* Applied to a dt tag. Consists of a film's associated genre.
 
-## Testing your code
+* language
+	* Applied to a dt tag. Consists of the language a film was made in.
 
-*Coming soon*
+* director
+	* Applied to a dt tag. Consists of the name of a director.
 
-## Troubleshooting
-
-*Coming soon*
-
-## Deploying to Heroku
-
-*Coming soon*
+* image
+	* Applied to a dt tag. Consists of an image of the film's poster.
 
 
+# Rel attribute values
+
+* film
+	* Applied to an A tag. A reference to a film representation.
+
+* director
+	* Applied to an A tag. A reference to a director representation.
+
+* website
+	* Applied to an A tag. A reference to a film's official website.
+
+# Name attribute values
+
+* title
+	* Applied to an INPUT[text] element. The title of an individual film.
+
+* year
+	* Applied to an INPUT[text] element. The year of an individual film.
+
+* website
+	* Applied to an INPUT[text] element. The website for an individual film.
+
+* director
+	* Applied to an INPUT[text] element. The director of an individual film.
+
+* image
+	* Applied to an INPUT[text] element. The image for an individual film.
+
+* rating
+	* Applied to an INPUT[text] element. The rating of an individual film.
+
+* genre
+	* Applied to an INPUT[text] element. The genre of an individual film.
+
+* language
+	* Applied to an INPUT[text] element. The language of an individual film.
+
+* actor
+	* Applied to an INPUT[text] element. The actor(s) for an individual film.
+
+* description
+	* Applied to an INPUT[text] element. The description for an individual film.
+
+# Types used
+
+* Text
+
+* URL
+
+* Person
+ 
+* Date
+
+# Properties used
+
+* name
+	* The name of the item.
+
+* datePublished
+	* Date of first broadcast/publication.
+
+* url
+	* URL of the item.
+
+* director
+	* The director of the movie.
+
+* image
+	* URL of an image of the item.
+
+* contentRating
+	* Official rating of a piece of content—for example,'MPAA PG-13'.
+
+* genre
+	* Genre of the creative work.
+
+* inLanguage
+	* The language of the content.
+
+* actor
+	* A cast member of the movie.
+
+* description
+	* A short description of the item.
+
+http://schema.org/Movie
