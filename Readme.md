@@ -1,7 +1,7 @@
 # ID attribute values
 
 * search
-    * Applied to a div tag. Contains a form for searching for films by name.
+	* Applied to a div tag. Contains a form for searching for films by name.
 
 * films
 	* Applied to a ul tag. The list of films in the representation. May contain only one film.
@@ -80,13 +80,13 @@
 
 # Types used
 
-*Text
+* Text
 
-*URL
+* URL
 
-*Person
-
-*Date
+* Person
+ 
+* Date
 
 # Properties used
 
