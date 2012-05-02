@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Film Data: <%=item.name%></title>
+    <title>Film Data: <%=item.title%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <a href="/"><h1>Film Data</h1></a>
     <dl>
       <dt>Title</dt>
-      <dd><%=item.name%></dd>
+      <dd><%=item.title%></dd>
       <dt>Director</dt>
       <dd><a href="/directors/<%=item.director%>"><%=item.director%></a></dd>
       <% if (item.image) { %>
