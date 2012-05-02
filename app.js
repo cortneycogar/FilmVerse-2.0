@@ -269,7 +269,7 @@ app.put('/directors/{director-id}', // TODO: change to suit your URI design.
 app.get('/films/search/',          // TODO: change to suit your URI design. 
   function(req, res) {
 
-    var item_type = 'title'; // TODO: change to the type of item you want.
+    var item_type = 'film'; // TODO: change to the type of item you want.
 
     // Get items of the specified type that match the query.
     db.getSome(item_type, req.query, function(err, items) {
