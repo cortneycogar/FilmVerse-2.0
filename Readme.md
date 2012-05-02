@@ -91,23 +91,33 @@
 # Properties used
 
 * name
+	* The name of the item.
 
 * datePublished
-
-* year
+	* Date of first broadcast/publication.
 
 * url
+	* URL of the item.
 
 * director
+	* The director of the movie.
 
 * image
+	* URL of an image of the item.
 
 * contentRating
+	* Official rating of a piece of content—for example,'MPAA PG-13'.
 
 * genre
+	* Genre of the creative work.
 
 * inLanguage
+	* The language of the content.
 
 * actor
+	* A cast member of the movie.
 
 * description
+	* A short description of the item.
+
+http://schema.org/Movie
