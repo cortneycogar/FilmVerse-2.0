@@ -9,6 +9,9 @@
 * new-film
 	* Applied to a div tag. Contains a form for adding a new film.
 
+* new-director
+*   * Applied to a div tag. Contains a form for adding a new director.
+
 # Class attribute values
 
 * control
