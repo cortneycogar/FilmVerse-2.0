@@ -21,7 +21,7 @@
           <% related_items.forEach(function(related_item) { %>
           <li>
             <a href="/films/<%=related_item._id%>">
-              <%=related_item.name%>
+              <%=related_item.title%> (<%related_item.year%>)
             </a>
           </li>
           <% }); %>
