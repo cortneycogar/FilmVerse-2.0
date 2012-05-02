@@ -21,9 +21,9 @@
         <% if (related_items.length > 0) { %>
         <ul>
           <% related_items.forEach(function(related_item) { %>
-          <li>
+          <li itemscope itemtype="http://schema.org/Movie">
             <a href="/films/<%=related_item._id%>">
-              <%=related_item.title%> (<%=related_item.year%>)
+            <span itemprop="name"><%=related_item.title%> (<%=related_item.year%>)</span>
             </a>
           </li>
           <% }); %>
