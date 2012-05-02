@@ -62,7 +62,7 @@
 	<label> Rating <input type="text" name="item[rating]" value="<%=item.rating%>" /></label>
 	<label> Genre <input type="text" name="item[genre]" value="<%=item.genre%>" /></label>
 	<label> Language <input type="text" name="item[language]" value="<%=item.language%>" /></label>
-    <label> Actor(s) <input type="text" name="item[actor]" value="<%=item.actor%>" /></label>
+    <label> Actor(s) <textarea name="item[actor]"><%=item.actor%></textarea></label>
     <label> Description <textarea name="item[description]"><%=item.description%></textarea></label>
         <button type="submit">Update</button>
       </form>
