@@ -33,7 +33,7 @@ function sanitizeForUrl(str)
 // Example of handling PUT to create or update a resource. /////////////////////
 // Here we create or update an item using the ID specified in the URI. /////////
 ////////////////////////////////////////////////////////////////////////////////
-app.post('/add-film/',      // TODO: change to suit your URI design.
+app.put('/films/',      // TODO: change to suit your URI design.
   function(req, res) {
       
 
@@ -45,7 +45,7 @@ app.post('/add-film/',      // TODO: change to suit your URI design.
           
   
     // Generate the id
-    var item_id = sanitizeForUrl(item.title);
+    var item_id = sanitizeForUrl(item.title)+'_'+sanitizeForUrl(item.year);
     
     
     item.type = 'film'; // TODO: change to the type of item you want
@@ -61,6 +61,36 @@ app.post('/add-film/',      // TODO: change to suit your URI design.
     });
   }
 );
+
+app.post('/films/:id',      // TODO: change to suit your URI design.
+  function(req, res) {
+      
+
+
+    // Get the item info that was PUT from the input form.
+    // See the form in `views/list-parties.ejs`.
+    var item = req.body.item;
+    
+          
+  
+    // Generate the id
+    var item_id = req.params.id;
+    
+    
+    item.type = 'film'; // TODO: change to the type of item you want
+
+    // Save the new item to the database, specifying the ID.
+    db.save(item_id, item, function(err) {
+
+      // If there was a database error, return an error status.
+      if (err) { res.send(err, 500); } 
+      
+      // Otherwise, redirect back to the URI from which the form was submitted.
+      else { res.redirect('back' ); }
+    });
+  }
+);
+
 // to add fims
 app.get('/add-stuff/',      // TODO: change to suit your URI design.
   function(req, res) {
@@ -263,9 +293,10 @@ app.get('/films/?rating={R}/',          // TODO: change to suit your URI design.
 // This handler is more complicated, because we want to show not only the //////
 // item requested, but also links to a set of related items. ///////////////////
 ////////////////////////////////////////////////////////////////////////////////
-app.get(/^\/films\/([a-z\-]+)_(\d+)\/?$/,      // TODO: change to suit your URI design.
+//app.get(/^\/films\/([a-z0-9\-]+)_(\d+)\/?$/,      // TODO: change to suit your URI design.
+app.get('/films/:id',
   function(req, res) {
-     return res.send(req.params);
+     //return res.send(req.params);
       
 
     var item_type = 'film'; // TODO: change to the type of item you want.

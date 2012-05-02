@@ -31,19 +31,32 @@
         <% } %>
       </dd>
     </dl>
+<
     <div class="control">
       <h2>Add a new film</h2>
       <form id="create-film" method="post" action="/films/">
         <input type="hidden" name="item[director]" value="<%=item._id%>">
         <!-- The line above links the candidate to be created to this party. -->
         <label>Film title: 
-          <input name="item[name]" type="text" required
+          <input name="item[title]" type="text" required
                    placeholder="Title">
+        </label>
+        <input name="item[year]" type="text" required
+                   placeholder="Year">
         </label>
         <label>Film image URL:
           <input name="item[image]" type="url" size="80"
                    placeholder="">
         </label>
+	<label> Rating <input type="text" name="item[rating]" value="" /></label>
+	<label> Genre <input type="text" name="item[genre]" value="" /></label>
+	<label> Language <input type="text" name="item[language]" value="" /></label>
+    <label> Description <textarea name="item[description]"></textarea></label>
+     <!-- The line above dynamically sets the PUT destination when the -->
+        <!-- form is submitted. -------------------------------------------->
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+
         <button>Add</button>
       </form>
     </div>

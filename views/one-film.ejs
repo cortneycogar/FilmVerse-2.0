@@ -19,10 +19,12 @@
     <div class="control">
       <h2>Update film</h2>
       <form method="post" action="/films/<%=item._id%>">
-        <input type="hidden" name="_method" value="put">
-        <!-- The line above tells the server to treat this as a PUT request. -->
+
         <label>Name: 
-          <input name="item[name]" value="<%=item.name%>" type="text" required>
+          <input name="item[title]" value="<%=item.title%>" type="text" required>
+        </label>
+     <input name="item[year]" type="text" required
+                   placeholder="Year">
         </label>
         <label>Director: 
           <select name="item[director]" required>
@@ -37,7 +39,15 @@
         <label>Image URL:
           <input name="item[image]" value="<%=item.image%>" type="url" size="80"> 
         </label>
-        <button>Update</button>
+        <label>Film image URL:
+          <input name="item[image]" type="url" size="80"
+                   placeholder="">
+        </label>
+	<label> Rating <input type="text" name="item[rating]" value="<%=item.rating%>" /></label>
+	<label> Genre <input type="text" name="item[genre]" value="<%=item.genre%>" /></label>
+	<label> Language <input type="text" name="item[language]" value="<%=item.language%>" /></label>
+    <label> Description <textarea name="item[description]"><%=item.description%></textarea></label>
+        <button type="submit">Update</button>
       </form>
     </div>
   </body>

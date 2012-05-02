@@ -9,7 +9,7 @@
     <% if (items.length > 0) { %>
     <ul>
       <% items.forEach(function(item) { %>
-      <li><a href="/films/<%=item._id%>_<%=item.year%>/"><%=item.title%></a></li>
+      <li><a href="/films/<%=item._id%>_<%=item.year%>/"><%=item.title%> (<%=item.year%>)</a></li>
       <% }); %>
     </ul>
     <% } else { %>
@@ -23,10 +23,16 @@
       </form>
     </div>
 
-<div id="new-film">
-    <form method="post" action="/add-film/">
+<div id="new-film" class="control">
+    <form method="post" action="/films/">
+
+     <!-- The line above dynamically sets the PUT destination when the -->
+        <!-- form is submitted. -------------------------------------------->
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+
     <label> Title <input type="text" name="film[title]" required value="" /></label>
-	<label> Year <input type="text" name="film[year]" required value="" /></label>
+	<label> Year <input type="text" name="film[year]" required pattern="[0-9]{4}" value="" /></label>
 	<label> Director <select type="text" name="film[director]">
             <% directors.forEach(function(director) { %>
             <option value="<%=director._id%>">
@@ -34,14 +40,14 @@
             </option>
             <% }); %>
     </select></label>
-	<label> Producer <input type="text" name="film[producer]" value="" /></label>
-	<label> Writer <input type="text" name="film[writer]" value="" /></label>
-	<label> Distributor <input type="text" name="film[distributor]" value="" /></label>
+        <label>Film image URL:
+          <input name="item[image]" type="url" size="80"
+                   placeholder="">
+        </label>
 	<label> Rating <input type="text" name="film[rating]" value="" /></label>
 	<label> Genre <input type="text" name="film[genre]" value="" /></label>
 	<label> Language <input type="text" name="film[language]" value="" /></label>
-	<label> Actor <textarea name="film[actor]"></textarea></label>
-<label> Description <textarea name="film[description]"></textarea></label>
+    <label> Description <textarea name="film[description]"></textarea></label>
 	<input type="submit" /></label>
 	</form>
 </div>
