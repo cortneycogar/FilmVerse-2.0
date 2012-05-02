@@ -14,7 +14,7 @@
       <dt>Director</dt>
       <dd><a href="/directors/<%=item.director%>"><%=item.director%></a></dd>
       <% if (item.image) { %>
-      <dt>Image URL</dt>
+      <dt>Film poster</dt>
       <dd><img src="<%=item.image%>" alt="<%=item.name%>"></dd>
       <% } %>
       <dt>Rating</dt>
@@ -46,12 +46,8 @@
             <% }); %>
           </select>
         </label>
-        <label>Image URL:
+        <label>Film poster:
           <input name="item[image]" value="<%=item.image%>" type="url" size="80"> 
-        </label>
-        <label>Film image URL:
-          <input name="item[image]" type="url" size="80"
-                   placeholder="">
         </label>
 	<label> Rating <input type="text" name="item[rating]" value="<%=item.rating%>" /></label>
 	<label> Genre <input type="text" name="item[genre]" value="<%=item.genre%>" /></label>
