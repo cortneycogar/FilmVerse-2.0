@@ -31,9 +31,9 @@
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
 
-    <label> Title <input type="text" name="film[title]" required value="" /></label>
-	<label> Year <input type="text" name="film[year]" required pattern="[0-9]{4}" value="" /></label>
-	<label> Director <select type="text" name="film[director]">
+    <label> Title <input type="text" name="item[title]" required value="" /></label>
+	<label> Year <input type="text" name="item[year]" required pattern="[0-9]{4}" value="" /></label>
+	<label> Director <select type="text" name="item[director]">
             <% directors.forEach(function(director) { %>
             <option value="<%=director._id%>">
               <%=director.name%>
@@ -44,10 +44,10 @@
           <input name="item[image]" type="url" size="80"
                    placeholder="">
         </label>
-	<label> Rating <input type="text" name="film[rating]" value="" /></label>
-	<label> Genre <input type="text" name="film[genre]" value="" /></label>
-	<label> Language <input type="text" name="film[language]" value="" /></label>
-    <label> Description <textarea name="film[description]"></textarea></label>
+	<label> Rating <input type="text" name="item[rating]" value="" /></label>
+	<label> Genre <input type="text" name="item[genre]" value="" /></label>
+	<label> Language <input type="text" name="item[language]" value="" /></label>
+    <label> Description <textarea name="item[description]"></textarea></label>
 	<input type="submit" /></label>
 	</form>
 </div>

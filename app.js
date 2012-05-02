@@ -40,7 +40,7 @@ app.put('/films/',      // TODO: change to suit your URI design.
 
     // Get the item info that was PUT from the input form.
     // See the form in `views/list-parties.ejs`.
-    var item = req.body.film;
+    var item = req.body.item;
     
           
   
