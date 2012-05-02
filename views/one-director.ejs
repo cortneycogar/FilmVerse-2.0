@@ -6,12 +6,14 @@
   </head>
   <body>
     <a href="/"><h1>Director Information</h1></a>
-    <dl itemscope itemtype="http://schema.org/Person>
+    <dl itemscope itemtype="http://schema.org/Person">
       <dt>Director name</dt>
-      <dd itemprop="name"><%=item.name%></dd>
+      <dd itemprop="name">
+      <%=item.name%></dd>
       <% if (item.description) { %>
       <dt>Description</dt>
-      <dd itemprop="description"><%=item.description%></dd>
+      <dd itemprop="description">
+      <%=item.description%></dd>
       <% } %>
       <dt>Films</dt>
       
