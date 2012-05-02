@@ -14,6 +14,9 @@
       <dt class="year">Year</dt>
       <dd itemprop="datePublished" itemscope itemtype="http://schema.org/Date">
       <span itemprop="year"><%=item.year%></span></dd>
+      <dt class="website">Website</dt>
+      <dd itemprop="url">
+      <%=item.url%></dd>
       <dt class="director">Director</dt>
       <dd itemprop="director" itemscope itemtype="http://schema.org/Person">
       <a href="/directors/<%=item.director%>"><span itemprop="name"><%=item.director%></span></a></dd>
@@ -46,6 +49,8 @@
         </label>
      <input name="item[year]" value="<%=item.year%>" type="text" required>
         </label>
+        <label>Website:
+           <input name="item[url]" value="<%=item.url%>" type="url" required>
         <label>Director: 
           <select name="item[director]" required>
             <% related_items.forEach(function(related_item) { %>
