@@ -333,7 +333,7 @@ app.get('/films/:id',
           else {
             res.render(
             'one-film', // TODO: change to the name of your HTML template.
-              { item: item, director: items }
+              { item: item, related_items: items }
             );
           }
         });
